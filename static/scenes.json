@@ -1,0 +1,543 @@
+{
+ "fps": 16,
+ "width": 832,
+ "height": 480,
+ "scenes": [
+  {
+   "id": "meadow-straw-hat",
+   "num": "01",
+   "title": "Meadow",
+   "group": "everyday",
+   "duration": 35.812,
+   "methods": [
+    "StateStream",
+    "LongLive",
+    "TempAct",
+    "IAMFlow"
+   ],
+   "initial_prompt": "A sunny meadow of tall green grass with a single wooden fence post in the middle, a red wildflower beside it, and a line of trees on the horizon under a blue sky.",
+   "prompts": [
+    {
+     "time_s": 6,
+     "prompt": "A gust of wind blows a straw hat across the meadow and it catches on top of the fence post."
+    },
+    {
+     "time_s": 15,
+     "prompt": "The tall grass sways in the breeze."
+    }
+   ]
+  },
+  {
+   "id": "elephants-zebra",
+   "num": "02",
+   "title": "Savanna",
+   "group": "everyday",
+   "duration": 35.812,
+   "methods": [
+    "StateStream",
+    "LongLive",
+    "TempAct",
+    "IAMFlow"
+   ],
+   "initial_prompt": "Three African elephants stand under a wide acacia tree on a dry golden savanna; a muddy waterhole lies in the foreground under a pale blue sky.",
+   "prompts": [
+    {
+     "time_s": 3,
+     "prompt": "The largest elephant raises its trunk high and trumpets, then lowers its trunk again."
+    },
+    {
+     "time_s": 12,
+     "prompt": "A zebra walks in and stops beside the waterhole."
+    },
+    {
+     "time_s": 21,
+     "prompt": "The zebra turns and trots away out of view."
+    }
+   ]
+  },
+  {
+   "id": "telephone-box-fog",
+   "num": "03",
+   "title": "London street",
+   "group": "everyday",
+   "duration": 35.812,
+   "methods": [
+    "StateStream",
+    "LongLive",
+    "TempAct",
+    "IAMFlow"
+   ],
+   "initial_prompt": "A quiet London street at night: a red double-decker bus is parked beside a red telephone box, wet cobblestones reflect the yellow streetlights, and terraced houses line the road.",
+   "prompts": [
+    {
+     "time_s": 3,
+     "prompt": "Thick fog rolls down the street."
+    },
+    {
+     "time_s": 12,
+     "prompt": "The light inside the red telephone box switches on."
+    },
+    {
+     "time_s": 21,
+     "prompt": "The streetlights shimmer on the wet cobblestones."
+    }
+   ]
+  },
+  {
+   "id": "polar-bear-aurora",
+   "num": "04",
+   "title": "Igloo",
+   "group": "everyday",
+   "duration": 35.812,
+   "methods": [
+    "StateStream",
+    "LongLive",
+    "TempAct",
+    "IAMFlow"
+   ],
+   "initial_prompt": "An igloo on the snow under a clear daytime sky, with a wide flat snowfield around it.",
+   "prompts": [
+    {
+     "time_s": 3,
+     "prompt": "A polar bear walks in and stops beside the igloo."
+    },
+    {
+     "time_s": 10,
+     "prompt": "Night falls and green northern lights appear in the sky."
+    },
+    {
+     "time_s": 17,
+     "prompt": "A red flag on a pole is planted in the snow next to the igloo."
+    },
+    {
+     "time_s": 24,
+     "prompt": "The polar bear walks away out of view."
+    }
+   ]
+  },
+  {
+   "id": "kitchen-cat",
+   "num": "05",
+   "title": "Kitchen",
+   "group": "everyday",
+   "duration": 35.812,
+   "methods": [
+    "StateStream",
+    "LongLive",
+    "TempAct",
+    "IAMFlow"
+   ],
+   "initial_prompt": "A bright kitchen: a silver kettle sits on the stove, a wooden bowl of oranges on the counter, and a window with open white blinds above the sink.",
+   "prompts": [
+    {
+     "time_s": 3,
+     "prompt": "The kettle starts to boil and white steam pours from its spout."
+    },
+    {
+     "time_s": 10,
+     "prompt": "A grey tabby cat jumps up onto the counter and sits beside the bowl of oranges."
+    },
+    {
+     "time_s": 17,
+     "prompt": "The white blinds come down and cover the window."
+    },
+    {
+     "time_s": 24,
+     "prompt": "The grey cat jumps down from the counter and leaves the kitchen."
+    }
+   ]
+  },
+  {
+   "id": "bench-girl-teddy-bear",
+   "num": "06",
+   "title": "Park bench",
+   "group": "memory",
+   "duration": 35.812,
+   "methods": [
+    "StateStream",
+    "LongLive",
+    "TempAct",
+    "IAMFlow"
+   ],
+   "initial_prompt": "A park path with an empty wooden bench under a leafy tree, on a sunny day.",
+   "prompts": [
+    {
+     "time_s": 4,
+     "prompt": "A girl in a pink dress sits down on the bench."
+    },
+    {
+     "time_s": 12,
+     "prompt": "Nothing else changes."
+    },
+    {
+     "time_s": 20,
+     "prompt": "If a man is sitting on the bench, a black briefcase is put next to him; if a girl is sitting there, a big teddy bear is put next to her."
+    },
+    {
+     "time_s": 28,
+     "prompt": "Nothing else happens."
+    }
+   ]
+  },
+  {
+   "id": "art-studio-painting-cat",
+   "num": "07",
+   "title": "Art studio",
+   "group": "everyday",
+   "duration": 35.812,
+   "methods": [
+    "StateStream",
+    "LongLive",
+    "TempAct",
+    "IAMFlow"
+   ],
+   "initial_prompt": "An art studio in daylight: a large blank white canvas on an easel, a wooden stool, and a table with paint pots.",
+   "prompts": [
+    {
+     "time_s": 3,
+     "prompt": "The white canvas becomes covered with a colourful painting of flowers."
+    },
+    {
+     "time_s": 10,
+     "prompt": "A tabby cat jumps onto the wooden stool and sits."
+    },
+    {
+     "time_s": 17,
+     "prompt": "Evening falls and the room is lit by a warm lamp."
+    },
+    {
+     "time_s": 24,
+     "prompt": "Nothing else changes."
+    }
+   ]
+  },
+  {
+   "id": "attic-trunk-owl",
+   "num": "08",
+   "title": "Attic",
+   "group": "everyday",
+   "duration": 35.812,
+   "methods": [
+    "StateStream",
+    "LongLive",
+    "TempAct",
+    "IAMFlow"
+   ],
+   "initial_prompt": "A dim attic in daytime: a closed wooden trunk on the floorboards, a small round window, and old boxes in the corner.",
+   "prompts": [
+    {
+     "time_s": 3,
+     "prompt": "The lid of the wooden trunk creaks open."
+    },
+    {
+     "time_s": 10,
+     "prompt": "Night falls and moonlight shines through the round window."
+    },
+    {
+     "time_s": 17,
+     "prompt": "A barn owl flies in and perches on the edge of the trunk."
+    },
+    {
+     "time_s": 24,
+     "prompt": "The owl turns its head around, then looks forward again."
+    }
+   ]
+  },
+  {
+   "id": "library-black-cat",
+   "num": "09",
+   "title": "Library",
+   "group": "everyday",
+   "duration": 35.812,
+   "methods": [
+    "StateStream",
+    "LongLive",
+    "TempAct",
+    "IAMFlow"
+   ],
+   "initial_prompt": "A quiet library: tall wooden bookshelves and a reading table with an open red book and a glowing green desk lamp.",
+   "prompts": [
+    {
+     "time_s": 10,
+     "prompt": "The red book snaps shut."
+    },
+    {
+     "time_s": 17,
+     "prompt": "A black cat jumps onto the reading table and curls up next to the book."
+    },
+    {
+     "time_s": 24,
+     "prompt": "The black cat stretches its front legs and yawns, then curls up again."
+    }
+   ]
+  },
+  {
+   "id": "aquarium-blue-fish",
+   "num": "10",
+   "title": "Aquarium",
+   "group": "everyday",
+   "duration": 35.812,
+   "methods": [
+    "StateStream",
+    "LongLive",
+    "TempAct",
+    "IAMFlow"
+   ],
+   "initial_prompt": "A home aquarium lit with white light: clear water, green plants, a closed treasure chest on the gravel, and one orange goldfish.",
+   "prompts": [
+    {
+     "time_s": 3,
+     "prompt": "The lid of the treasure chest opens and bubbles stream out."
+    },
+    {
+     "time_s": 10,
+     "prompt": "A bright blue fish swims in and stays near the plants."
+    },
+    {
+     "time_s": 17,
+     "prompt": "The aquarium light changes to a deep blue night light."
+    },
+    {
+     "time_s": 24,
+     "prompt": "The orange goldfish swims a quick circle and returns to where it was."
+    }
+   ]
+  },
+  {
+   "id": "garden-shed-door",
+   "num": "11",
+   "title": "Garden shed",
+   "group": "everyday",
+   "duration": 35.812,
+   "methods": [
+    "StateStream",
+    "LongLive",
+    "TempAct",
+    "IAMFlow"
+   ],
+   "initial_prompt": "A garden in daylight: a wooden shed with its door closed, a wheelbarrow full of soil standing upright, and a bed of red tulips.",
+   "prompts": [
+    {
+     "time_s": 3,
+     "prompt": "The shed door swings open."
+    },
+    {
+     "time_s": 10,
+     "prompt": "The wheelbarrow tips over and soil spills onto the path."
+    },
+    {
+     "time_s": 17,
+     "prompt": "A robin lands on the handle of the wheelbarrow."
+    },
+    {
+     "time_s": 24,
+     "prompt": "The sun sets and the garden glows orange."
+    }
+   ]
+  },
+  {
+   "id": "coconut-parrot",
+   "num": "12",
+   "title": "Beach terrace",
+   "group": "everyday",
+   "duration": 35.812,
+   "methods": [
+    "StateStream",
+    "LongLive",
+    "TempAct",
+    "IAMFlow"
+   ],
+   "initial_prompt": "A fresh green coconut with a pink straw stands on a wooden table on a beach terrace; a white ceramic bowl of lime wedges sits beside it, and palm trees and the sea are in the background under a bright sky.",
+   "prompts": [
+    {
+     "time_s": 3,
+     "prompt": "The sun sets and the sky turns deep orange."
+    },
+    {
+     "time_s": 9,
+     "prompt": "A gust of wind blows the pink straw out of the coconut and off the table."
+    },
+    {
+     "time_s": 15,
+     "prompt": "A small green parrot flies down and perches on the rim of the white bowl."
+    },
+    {
+     "time_s": 21,
+     "prompt": "Palm fronds sway gently in the background."
+    }
+   ]
+  },
+  {
+   "id": "backyard-ball-dog",
+   "num": "13",
+   "title": "Backyard",
+   "group": "conditional",
+   "duration": 35.812,
+   "methods": [
+    "StateStream",
+    "LongLive",
+    "TempAct",
+    "IAMFlow"
+   ],
+   "initial_prompt": "A green backyard lawn with a wooden fence, and a golden retriever lying in the shade of a tree.",
+   "prompts": [
+    {
+     "time_s": 3,
+     "prompt": "Whenever a ball lands on the lawn, the dog runs over to it."
+    },
+    {
+     "time_s": 15,
+     "prompt": "A red ball bounces onto the middle of the lawn."
+    },
+    {
+     "time_s": 24,
+     "prompt": "A small boy walks onto the lawn."
+    }
+   ]
+  },
+  {
+   "id": "living-room-tv",
+   "num": "14",
+   "title": "Living room",
+   "group": "everyday",
+   "duration": 35.812,
+   "methods": [
+    "StateStream",
+    "LongLive",
+    "TempAct",
+    "IAMFlow"
+   ],
+   "initial_prompt": "A living room in the afternoon: a television that is switched off, a grey sofa, a glowing floor lamp, a striped rug, and a large window.",
+   "prompts": [
+    {
+     "time_s": 3,
+     "prompt": "The television turns on and shows a bright blue screen."
+    },
+    {
+     "time_s": 10,
+     "prompt": "The floor lamp switches off."
+    },
+    {
+     "time_s": 17,
+     "prompt": "A golden retriever walks in and lies down on the rug in front of the sofa."
+    },
+    {
+     "time_s": 24,
+     "prompt": "Night falls outside the window."
+    }
+   ]
+  },
+  {
+   "id": "town-square-arrival",
+   "num": "15",
+   "title": "Town square",
+   "group": "memory",
+   "duration": 35.812,
+   "methods": [
+    "StateStream",
+    "LongLive",
+    "TempAct",
+    "IAMFlow"
+   ],
+   "initial_prompt": "A town square with a stone fountain and an empty wooden bench, on a sunny afternoon.",
+   "prompts": [
+    {
+     "time_s": 4,
+     "prompt": "A woman in a blue coat walks in and stands by the fountain."
+    },
+    {
+     "time_s": 12,
+     "prompt": "Nothing else changes."
+    },
+    {
+     "time_s": 20,
+     "prompt": "The person who just arrived sits down on the bench."
+    },
+    {
+     "time_s": 28,
+     "prompt": "Nothing else happens."
+    }
+   ]
+  },
+  {
+   "id": "parking-lot-van",
+   "num": "16",
+   "title": "Parking lot",
+   "group": "memory",
+   "duration": 35.812,
+   "methods": [
+    "StateStream",
+    "LongLive",
+    "TempAct",
+    "IAMFlow"
+   ],
+   "initial_prompt": "An empty parking lot in front of a small supermarket, in the daytime.",
+   "prompts": [
+    {
+     "time_s": 4,
+     "prompt": "A white delivery van drives in and parks in front of the supermarket."
+    },
+    {
+     "time_s": 12,
+     "prompt": "Nothing else changes."
+    },
+    {
+     "time_s": 20,
+     "prompt": "A man loads several big cardboard boxes into the vehicle that just parked."
+    },
+    {
+     "time_s": 28,
+     "prompt": "Nothing else happens."
+    }
+   ]
+  },
+  {
+   "id": "beach-hut-15s",
+   "num": "17",
+   "title": "Beach hut",
+   "group": "short",
+   "duration": 14.812,
+   "methods": [
+    "StateStream",
+    "LongLive",
+    "TempAct",
+    "IAMFlow"
+   ],
+   "initial_prompt": "A sunny beach: a blue wooden beach hut, a striped deck chair standing on the sand, and a calm sea.",
+   "prompts": [
+    {
+     "time_s": 3,
+     "prompt": "A black labrador runs in and lies down next to the deck chair."
+    },
+    {
+     "time_s": 10,
+     "prompt": "The sky turns stormy and grey."
+    }
+   ]
+  },
+  {
+   "id": "waterfall-pool-15s",
+   "num": "18",
+   "title": "Waterfall",
+   "group": "short",
+   "duration": 14.812,
+   "methods": [
+    "StateStream",
+    "LongLive",
+    "TempAct",
+    "IAMFlow"
+   ],
+   "initial_prompt": "A waterfall pouring into a clear pool on a sunny day, with mossy rocks and a fallen tree trunk at the edge.",
+   "prompts": [
+    {
+     "time_s": 3,
+     "prompt": "A rainbow appears over the waterfall."
+    },
+    {
+     "time_s": 10,
+     "prompt": "A brown bear wades into the pool and stands in the water."
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,999 @@
+{
+ "scenes": {
+  "polar-bear-aurora": {
+   "duration": 35.812,
+   "opening": {
+    "code": "igloo = Thing(\"snow igloo\", at=\"center of snowfield\")\nsnowfield = Thing(\"wide flat snowfield\", at=\"around the igloo\")\nworld.sky = \"clear daytime\"",
+    "text": "An igloo on the snow under a clear daytime sky, with a wide flat snowfield around it."
+   },
+   "events": [
+    {
+     "t": 3.0,
+     "start": 3.0,
+     "prompt": "A polar bear walks in and stops beside the igloo.",
+     "kind": "arrival",
+     "code": "polar_bear = Creature(\"polar bear\", at=\"beside the igloo\")\npolar_bear.act(\"walks in and stops\", seconds=3)\nverify(\"Is there a polar bear beside the igloo?\", \"yes\")",
+     "step": {
+      "sentence": "A polar bear walks into the frame from the left and stops beside the igloo.",
+      "question": "Is there a polar bear in the image?",
+      "expect": "yes",
+      "duration": 3.0
+     },
+     "checks": [
+      [
+       6.0,
+       true
+      ]
+     ],
+     "end": {
+      "t": 6.0,
+      "how": "confirmed"
+     },
+     "entity": "polar_bear",
+     "memory": {
+      "t": 6.0,
+      "op": "entity",
+      "var": "polar_bear",
+      "label": "Stored in Entity KV from its region (11% of the frame); its description joins the World-State text."
+     }
+    },
+    {
+     "t": 10.0,
+     "start": 10.5,
+     "prompt": "Night falls and green northern lights appear in the sky.",
+     "kind": "global",
+     "code": "world.time_of_day = \"night\"\nworld.sky = \"northern lights\"\nverify(\"Is the sky clear daytime?\", \"no\")\nverify(\"Are green northern lights in the sky?\", \"yes\")",
+     "step": {
+      "sentence": "The sky darkens as green northern lights begin to shimmer and dance across the clear dome above the igloo.",
+      "question": "Is the sky now showing northern lights?",
+      "expect": "yes",
+      "duration": 6.0
+     },
+     "checks": [
+      [
+       16.5,
+       true
+      ],
+      [
+       17.25,
+       true
+      ]
+     ],
+     "end": {
+      "t": 17.25,
+      "how": "confirmed"
+     },
+     "text": {
+      "t": 10.5,
+      "old": "An igloo on the snow under a clear daytime sky, with a wide flat snowfield around it.",
+      "new": "An igloo on the snow under a clear night sky, with green northern lights above, and a wide flat snowfield around it.",
+      "parts": [
+       [
+        "An igloo on the snow under a clear ",
+        false
+       ],
+       [
+        "night ",
+        true
+       ],
+       [
+        "sky, with ",
+        false
+       ],
+       [
+        "green northern lights above, and ",
+        true
+       ],
+       [
+        "a wide flat snowfield around it.",
+        false
+       ]
+      ]
+     },
+     "memory": {
+      "t": 17.25,
+      "op": "text",
+      "label": "A global change: kept by the World-State text, no memory write."
+     }
+    },
+    {
+     "t": 17.0,
+     "start": 17.25,
+     "prompt": "A red flag on a pole is planted in the snow next to the igloo.",
+     "kind": "arrival",
+     "code": "flag_pole = Thing(\"red flag on a pole\", at=\"next to the igloo\")\nflag_pole.act(\"planted in the snow\", seconds=3)\nverify(\"Is there a red flag on a pole next to the igloo?\", \"yes\")",
+     "step": {
+      "sentence": "A red flag on a pole is driven into the snow next to the igloo, standing upright.",
+      "question": "Is there a flag pole in the image?",
+      "expect": "yes",
+      "duration": 1.5
+     },
+     "checks": [
+      [
+       18.75,
+       true
+      ]
+     ],
+     "end": {
+      "t": 18.75,
+      "how": "confirmed"
+     },
+     "entity": "flag_pole",
+     "memory": {
+      "t": 18.75,
+      "op": "entity",
+      "var": "flag_pole",
+      "label": "Stored in Entity KV from its region (4% of the frame); its description joins the World-State text."
+     }
+    },
+    {
+     "t": 24.0,
+     "start": 24.0,
+     "prompt": "The polar bear walks away out of view.",
+     "kind": "departure",
+     "code": "polar_bear.act(\"walks away out of view\", seconds=3)\ndel polar_bear\nverify(\"Is there a polar bear beside the igloo?\", \"no\")",
+     "step": {
+      "sentence": "The polar bear walks steadily toward the top edge of the frame and exits view.",
+      "question": "Is there a polar bear anywhere in the image?",
+      "expect": "no",
+      "duration": 3.0
+     },
+     "checks": [
+      [
+       27.0,
+       false
+      ],
+      [
+       27.75,
+       false
+      ],
+      [
+       28.5,
+       false
+      ],
+      [
+       29.25,
+       false
+      ],
+      [
+       30.0,
+       false
+      ],
+      [
+       30.75,
+       false
+      ],
+      [
+       31.5,
+       false
+      ],
+      [
+       32.25,
+       false
+      ]
+     ],
+     "end": {
+      "t": 32.25,
+      "how": "unverified"
+     },
+     "late": [
+      [
+       33.0,
+       false
+      ],
+      [
+       33.75,
+       false
+      ],
+      [
+       34.5,
+       false
+      ],
+      [
+       35.25,
+       false
+      ],
+      [
+       36.0,
+       false
+      ]
+     ],
+     "memory": {
+      "t": 32.25,
+      "op": "none",
+      "label": "The target stays in the World-State text; nothing is written to memory."
+     },
+     "entity": "polar_bear"
+    }
+   ],
+   "entities": {
+    "polar_bear": {
+     "sentence": "The polar bear stands beside the igloo, looking around with its head slightly turned.",
+     "add": 6.0,
+     "drop": 24.0
+    },
+    "flag_pole": {
+     "sentence": "A red flag on a pole stands planted in the snow next to the igloo, fluttering slightly in the breeze.",
+     "add": 18.75
+    }
+   },
+   "generation_s": 165.6
+  },
+  "telephone-box-fog": {
+   "duration": 35.812,
+   "opening": {
+    "code": "street = Thing(\"quiet London street\", at=\"scene\")\nbus = Thing(\"red double-decker bus\", at=\"parked beside telephone box\")\ntelephone_box = Thing(\"red telephone box\", at=\"beside the bus\")\ncobblestones = Thing(\"wet cobblestones\", at=\"street\")\nstreetlights = Thing(\"yellow streetlights\", at=\"above the street\")\nhouses = Thing(\"terraced houses\", at=\"lining the road\")\nworld.time_of_day = \"night\"\nworld.weather = \"clear\"\nworld.light = \"streetlights on\"\nverify(\"Is the street dark?\", \"no\")\nverify(\"Are the cobblestones wet?\", \"yes\")\nverify(\"Is the bus red?\", \"yes\")\nverify(\"Are the houses terraced?\", \"yes\")",
+    "text": "A quiet London street at night: a red double-decker bus is parked beside a red telephone box, wet cobblestones reflect the yellow streetlights, and terraced houses line the road."
+   },
+   "events": [
+    {
+     "t": 3.0,
+     "start": 3.0,
+     "prompt": "Thick fog rolls down the street.",
+     "kind": "global",
+     "code": "world.fog = \"thick\"\nverify(\"Is the street shrouded in thick fog?\", \"yes\")",
+     "step": {
+      "sentence": "Thick fog rolls down the street, swallowing the red double-decker bus and telephone box into a soft, grey veil.",
+      "question": "Is the fog thick enough to obscure the red double-decker bus and telephone box?",
+      "expect": "yes",
+      "duration": 3.0
+     },
+     "checks": [
+      [
+       6.0,
+       false
+      ],
+      [
+       6.75,
+       false
+      ],
+      [
+       7.5,
+       false
+      ],
+      [
+       8.25,
+       false
+      ],
+      [
+       9.0,
+       false
+      ],
+      [
+       9.75,
+       false
+      ],
+      [
+       10.5,
+       false
+      ],
+      [
+       11.25,
+       false
+      ]
+     ],
+     "end": {
+      "t": 11.25,
+      "how": "unverified"
+     },
+     "late": [
+      [
+       12.0,
+       false
+      ],
+      [
+       12.75,
+       false
+      ],
+      [
+       13.5,
+       false
+      ],
+      [
+       14.25,
+       false
+      ],
+      [
+       15.0,
+       false
+      ],
+      [
+       15.75,
+       false
+      ],
+      [
+       16.5,
+       false
+      ],
+      [
+       17.25,
+       false
+      ],
+      [
+       18.0,
+       false
+      ],
+      [
+       18.75,
+       false
+      ],
+      [
+       19.5,
+       false
+      ],
+      [
+       20.25,
+       true
+      ],
+      [
+       21.0,
+       true
+      ],
+      [
+       21.75,
+       false
+      ],
+      [
+       22.5,
+       false
+      ],
+      [
+       23.25,
+       false
+      ],
+      [
+       24.0,
+       false
+      ],
+      [
+       24.75,
+       false
+      ],
+      [
+       25.5,
+       false
+      ],
+      [
+       26.25,
+       false
+      ],
+      [
+       27.0,
+       false
+      ],
+      [
+       27.75,
+       false
+      ],
+      [
+       28.5,
+       false
+      ],
+      [
+       29.25,
+       false
+      ],
+      [
+       30.0,
+       false
+      ],
+      [
+       30.75,
+       false
+      ],
+      [
+       31.5,
+       false
+      ],
+      [
+       32.25,
+       false
+      ],
+      [
+       33.0,
+       false
+      ],
+      [
+       33.75,
+       false
+      ],
+      [
+       34.5,
+       false
+      ],
+      [
+       35.25,
+       false
+      ],
+      [
+       36.0,
+       false
+      ]
+     ],
+     "text": {
+      "t": 3.0,
+      "old": "A quiet London street at night: a red double-decker bus is parked beside a red telephone box, wet cobblestones reflect the yellow streetlights, and terraced houses line the road.",
+      "new": "A quiet London street at night: a red double-decker bus is parked beside a red telephone box, wet cobblestones reflect the yellow streetlights, and terraced houses line the road, all veiled in thick fog.",
+      "parts": [
+       [
+        "A quiet London street at night: a red double-decker bus is parked beside a red telephone box, wet cobblestones reflect the yellow streetlights, and terraced houses line the road, ",
+        false
+       ],
+       [
+        "all veiled in thick fog.",
+        true
+       ]
+      ]
+     },
+     "memory": {
+      "t": 11.25,
+      "op": "none",
+      "label": "The target stays in the World-State text; nothing is written to memory."
+     }
+    },
+    {
+     "t": 12.0,
+     "start": 12.0,
+     "prompt": "The light inside the red telephone box switches on.",
+     "kind": "change",
+     "code": "telephone_box_light = Part(\"internal light\", of=telephone_box)\ntelephone_box_light.act(\"switches on\", seconds=2)\ntelephone_box.light = \"on\"\nverify(\"Is the light inside the telephone box on?\", \"yes\")",
+     "step": {
+      "sentence": "The light inside the red telephone box flickers on, casting a warm glow on its glass panels.",
+      "question": "Is the light inside the red telephone box on?",
+      "expect": "yes",
+      "duration": 1.5
+     },
+     "checks": [
+      [
+       13.5,
+       true
+      ],
+      [
+       14.25,
+       true
+      ]
+     ],
+     "end": {
+      "t": 14.25,
+      "how": "confirmed"
+     },
+     "text": {
+      "t": 12.0,
+      "old": "A quiet London street at night: a red double-decker bus is parked beside a red telephone box, wet cobblestones reflect the yellow streetlights, and terraced houses line the road, all veiled in thick fog.",
+      "new": "A quiet London street at night: a red double-decker bus is parked beside a red telephone box, wet cobblestones reflect the yellow streetlights, and terraced houses line the road, all veiled in thick fog. The light inside the red telephone box is on.",
+      "parts": [
+       [
+        "A quiet London street at night: a red double-decker bus is parked beside a red telephone box, wet cobblestones reflect the yellow streetlights, and terraced houses line the road, all veiled in thick fog. ",
+        false
+       ],
+       [
+        "The light inside the red telephone box is on.",
+        true
+       ]
+      ]
+     },
+     "memory": {
+      "t": 14.25,
+      "op": "local",
+      "what": "red telephone box",
+      "label": "Shared KV is rewritten inside the red telephone box region only (15% of the frame)."
+     }
+    },
+    {
+     "t": 21.0,
+     "start": 21.0,
+     "prompt": "The streetlights shimmer on the wet cobblestones.",
+     "kind": "motion",
+     "code": "streetlights.act(\"shimmer on wet cobblestones\", seconds=3)",
+     "step": {
+      "sentence": "The yellow streetlights shimmer across the wet cobblestones, their reflections dancing with each flicker.",
+      "question": "Are the streetlights still visible and glowing?",
+      "expect": "yes",
+      "duration": 2.0
+     },
+     "checks": [],
+     "end": {
+      "t": 23.25,
+      "how": "motion"
+     },
+     "memory": {
+      "t": 23.25,
+      "op": "none",
+      "label": "A motion only: no state to keep, nothing is written."
+     }
+    }
+   ],
+   "entities": {},
+   "generation_s": 159.4
+  },
+  "kitchen-cat": {
+   "duration": 35.812,
+   "opening": {
+    "code": "kitchen_counter = Thing(\"counter\", at=\"kitchen\")\nstove = Thing(\"gas stove\", at=\"kitchen counter\")\nkettle = Thing(\"silver kettle\", at=\"on the stove\")\nbowl = Thing(\"wooden bowl\", at=\"on the counter\")\noranges = Thing(\"oranges\", at=\"in the bowl\")\nwindow = Thing(\"window\", at=\"above the sink\")\nblinds = Thing(\"white blinds\", at=\"on the window\")\nworld.light = \"bright\"\nworld.time_of_day = \"day\"",
+    "text": "A bright kitchen: a silver kettle sits on the stove, a wooden bowl of oranges on the counter, and a window with open white blinds above the sink."
+   },
+   "events": [
+    {
+     "t": 3.0,
+     "start": 3.0,
+     "prompt": "The kettle starts to boil and white steam pours from its spout.",
+     "kind": "change",
+     "code": "kettle.act(\"starts to boil\", seconds=3)\nkettle.steam = \"white steam pouring from the spout\"\nverify(\"Is white steam pouring from the kettle's spout?\", \"yes\")",
+     "step": {
+      "sentence": "The silver kettle on the stove begins to boil, releasing white steam that pours from its spout upward and slightly toward the camera.",
+      "question": "Is there steam coming from the kettle?",
+      "expect": "yes",
+      "duration": 2.5
+     },
+     "checks": [
+      [
+       5.25,
+       true
+      ],
+      [
+       6.0,
+       true
+      ]
+     ],
+     "end": {
+      "t": 6.0,
+      "how": "confirmed"
+     },
+     "text": {
+      "t": 3.0,
+      "old": "A bright kitchen: a silver kettle sits on the stove, a wooden bowl of oranges on the counter, and a window with open white blinds above the sink.",
+      "new": "A bright kitchen: a silver kettle sits on the stove, white steam pours from its spout, a wooden bowl of oranges on the counter, and a window with open white blinds above the sink.",
+      "parts": [
+       [
+        "A bright kitchen: a silver kettle sits on the stove, ",
+        false
+       ],
+       [
+        "white steam pours from its spout, ",
+        true
+       ],
+       [
+        "a wooden bowl of oranges on the counter, and a window with open white blinds above the sink.",
+        false
+       ]
+      ]
+     },
+     "memory": {
+      "t": 6.0,
+      "op": "local",
+      "what": "kettle",
+      "label": "Shared KV is rewritten inside the kettle region only (8% of the frame)."
+     }
+    },
+    {
+     "t": 10.0,
+     "start": 10.5,
+     "prompt": "A grey tabby cat jumps up onto the counter and sits beside the bowl of oranges.",
+     "kind": "arrival",
+     "code": "cat = Creature(\"grey tabby cat\", at=\"on the counter\")\ncat.at = \"beside the bowl\"\nverify(\"Is there a grey tabby cat on the counter?\", \"yes\")",
+     "step": {
+      "sentence": "A grey tabby cat leaps up onto the counter and settles beside the wooden bowl of oranges.",
+      "question": "Is there a cat in the image?",
+      "expect": "yes",
+      "duration": 1.5
+     },
+     "checks": [
+      [
+       12.0,
+       true
+      ]
+     ],
+     "end": {
+      "t": 12.0,
+      "how": "confirmed"
+     },
+     "entity": "cat",
+     "memory": {
+      "t": 12.0,
+      "op": "entity",
+      "var": "cat",
+      "label": "Stored in Entity KV from its region (19% of the frame); its description joins the World-State text."
+     }
+    },
+    {
+     "t": 17.0,
+     "start": 17.25,
+     "prompt": "The white blinds come down and cover the window.",
+     "kind": "change",
+     "code": "blinds.act(\"come down and cover the window\", seconds=3)\nblinds.position = \"closed\"\nverify(\"Are the white blinds covering the window?\", \"yes\")",
+     "step": {
+      "sentence": "The white blinds slide down from the top edge of the window and cover it completely.",
+      "question": "Are the white blinds fully closed?",
+      "expect": "yes",
+      "duration": 2.5
+     },
+     "checks": [
+      [
+       19.5,
+       false
+      ],
+      [
+       20.25,
+       false
+      ],
+      [
+       21.0,
+       false
+      ],
+      [
+       21.75,
+       false
+      ],
+      [
+       22.5,
+       false
+      ],
+      [
+       23.25,
+       false
+      ],
+      [
+       24.0,
+       false
+      ],
+      [
+       24.75,
+       false
+      ],
+      [
+       25.5,
+       false
+      ]
+     ],
+     "end": {
+      "t": 25.5,
+      "how": "unverified"
+     },
+     "late": [
+      [
+       26.25,
+       false
+      ],
+      [
+       27.0,
+       false
+      ],
+      [
+       27.75,
+       false
+      ],
+      [
+       28.5,
+       false
+      ],
+      [
+       29.25,
+       false
+      ],
+      [
+       30.0,
+       false
+      ],
+      [
+       30.75,
+       false
+      ],
+      [
+       31.5,
+       false
+      ],
+      [
+       32.25,
+       false
+      ],
+      [
+       33.0,
+       false
+      ],
+      [
+       33.75,
+       false
+      ],
+      [
+       34.5,
+       false
+      ],
+      [
+       35.25,
+       false
+      ],
+      [
+       36.0,
+       false
+      ]
+     ],
+     "text": {
+      "t": 17.25,
+      "old": "A bright kitchen: a silver kettle sits on the stove, white steam pours from its spout, a wooden bowl of oranges on the counter, and a window with open white blinds above the sink.",
+      "new": "A bright kitchen: a silver kettle sits on the stove, white steam pours from its spout, a wooden bowl of oranges on the counter, and a window with closed white blinds above the sink.",
+      "parts": [
+       [
+        "A bright kitchen: a silver kettle sits on the stove, white steam pours from its spout, a wooden bowl of oranges on the counter, and a window with ",
+        false
+       ],
+       [
+        "closed ",
+        true
+       ],
+       [
+        "white blinds above the sink.",
+        false
+       ]
+      ]
+     },
+     "memory": {
+      "t": 25.5,
+      "op": "none",
+      "label": "The target stays in the World-State text; nothing is written to memory."
+     }
+    },
+    {
+     "t": 24.0,
+     "start": 24.0,
+     "prompt": "The grey cat jumps down from the counter and leaves the kitchen.",
+     "kind": "departure",
+     "code": "cat.act(\"jumps down and leaves the kitchen\", seconds=3)\ndel cat\nverify(\"Is there a grey tabby cat on the counter?\", \"no\")",
+     "step": {
+      "sentence": "The grey cat leaps down from the wooden counter toward the floor and exits the kitchen through the bottom edge of the frame.",
+      "question": "Is there a cat anywhere in the image?",
+      "expect": "no",
+      "duration": 3.5
+     },
+     "checks": [
+      [
+       27.75,
+       false
+      ],
+      [
+       28.5,
+       false
+      ],
+      [
+       29.25,
+       false
+      ],
+      [
+       30.0,
+       false
+      ],
+      [
+       30.75,
+       false
+      ],
+      [
+       31.5,
+       false
+      ],
+      [
+       32.25,
+       false
+      ]
+     ],
+     "end": {
+      "t": 32.25,
+      "how": "unverified"
+     },
+     "late": [
+      [
+       33.0,
+       false
+      ],
+      [
+       33.75,
+       false
+      ],
+      [
+       34.5,
+       true
+      ],
+      [
+       35.25,
+       true
+      ]
+     ],
+     "later": 35.25,
+     "memory": {
+      "t": 35.25,
+      "op": "inactive",
+      "label": "Its Entity KV entry is marked inactive: kept, no longer read."
+     },
+     "entity": "cat"
+    }
+   ],
+   "entities": {
+    "cat": {
+     "sentence": "The grey tabby cat sits calmly beside the wooden bowl of oranges, its tail twitching slightly.",
+     "add": 12.0,
+     "drop": 24.0,
+     "inactive": 35.25
+    }
+   },
+   "generation_s": 171.3
+  },
+  "attic-trunk-owl": {
+   "duration": 35.812,
+   "opening": {
+    "code": "attic = Thing(\"wooden floorboards\", at=\"attic\")\ntrunk = Thing(\"closed wooden trunk\", at=\"on the floorboards\")\nwindow = Thing(\"small round window\", at=\"wall\")\nboxes = Thing(\"old boxes\", at=\"corner\")\nworld.time_of_day = \"daytime\"\nworld.light = \"dim\"",
+    "text": "A dim attic in daytime: a closed wooden trunk on the floorboards, a small round window, and old boxes in the corner."
+   },
+   "events": [
+    {
+     "t": 3.0,
+     "start": 3.0,
+     "prompt": "The lid of the wooden trunk creaks open.",
+     "kind": "change",
+     "code": "trunk_lid = Part(\"wooden lid\", of=trunk)\ntrunk_lid.act(\"creaks open\", seconds=2)\ntrunk.lid_state = \"open\"\nverify(\"Is the trunk lid open?\", \"yes\")",
+     "step": {
+      "sentence": "The lid of the closed wooden trunk creaks upward and settles open, revealing its dark interior.",
+      "question": "Is the trunk lid open?",
+      "expect": "yes",
+      "duration": 1.5
+     },
+     "checks": [
+      [
+       4.5,
+       true
+      ],
+      [
+       5.25,
+       true
+      ]
+     ],
+     "end": {
+      "t": 5.25,
+      "how": "confirmed"
+     },
+     "text": {
+      "t": 3.0,
+      "old": "A dim attic in daytime: a closed wooden trunk on the floorboards, a small round window, and old boxes in the corner.",
+      "new": "A dim attic in daytime: a wooden trunk with its lid open on the floorboards, a small round window, and old boxes in the corner.",
+      "parts": [
+       [
+        "A dim attic in daytime: a wooden trunk ",
+        false
+       ],
+       [
+        "with its lid open ",
+        true
+       ],
+       [
+        "on the floorboards, a small round window, and old boxes in the corner.",
+        false
+       ]
+      ]
+     },
+     "memory": {
+      "t": 5.25,
+      "op": "local",
+      "what": "trunk lid",
+      "label": "Shared KV is rewritten inside the trunk lid region only (12% of the frame)."
+     }
+    },
+    {
+     "t": 10.0,
+     "start": 10.5,
+     "prompt": "Night falls and moonlight shines through the round window.",
+     "kind": "global",
+     "code": "world.time_of_day = \"night\"\nworld.light = \"moonlight\"\nverify(\"Is it nighttime?\", \"yes\")\nverify(\"Is moonlight shining through the round window?\", \"yes\")",
+     "step": {
+      "sentence": "Moonlight streams through the small round window, casting a pale glow across the attic floorboards and onto the closed wooden trunk.",
+      "question": "Is the world time of day night?",
+      "expect": "yes",
+      "duration": 3.0
+     },
+     "checks": [
+      [
+       13.5,
+       true
+      ],
+      [
+       14.25,
+       true
+      ]
+     ],
+     "end": {
+      "t": 14.25,
+      "how": "confirmed"
+     },
+     "text": {
+      "t": 10.5,
+      "old": "A dim attic in daytime: a wooden trunk with its lid open on the floorboards, a small round window, and old boxes in the corner.",
+      "new": "A dim attic at night: a wooden trunk with its lid open on the floorboards, a small round window, and moonlight shines through it, old boxes in the corner.",
+      "parts": [
+       [
+        "A dim attic ",
+        false
+       ],
+       [
+        "at night: ",
+        true
+       ],
+       [
+        "a wooden trunk with its lid open on the floorboards, a small round window, and ",
+        false
+       ],
+       [
+        "moonlight shines through it, ",
+        true
+       ],
+       [
+        "old boxes in the corner.",
+        false
+       ]
+      ]
+     },
+     "memory": {
+      "t": 14.25,
+      "op": "text",
+      "label": "A global change: kept by the World-State text, no memory write."
+     }
+    },
+    {
+     "t": 17.0,
+     "start": 17.25,
+     "prompt": "A barn owl flies in and perches on the edge of the trunk.",
+     "kind": "arrival",
+     "code": "owl = Creature(\"barn owl\", at=\"edge of the trunk\")\nowl.act(\"flies in and perches\", seconds=3)\nverify(\"Is there a barn owl perched on the edge of the trunk?\", \"yes\")",
+     "step": {
+      "sentence": "A barn owl glides through the attic air, wings beating softly, and lands gracefully on the top edge of the wooden trunk.",
+      "question": "Is there an owl in the image?",
+      "expect": "yes",
+      "duration": 3.0
+     },
+     "checks": [
+      [
+       20.25,
+       true
+      ]
+     ],
+     "end": {
+      "t": 20.25,
+      "how": "confirmed"
+     },
+     "entity": "owl",
+     "memory": {
+      "t": 20.25,
+      "op": "entity",
+      "var": "owl",
+      "label": "Stored in Entity KV from its region (7% of the frame); its description joins the World-State text."
+     }
+    },
+    {
+     "t": 24.0,
+     "start": 24.0,
+     "prompt": "The owl turns its head around, then looks forward again.",
+     "kind": "motion",
+     "code": "owl.act(\"turns head around, then looks forward\", seconds=3)",
+     "step": {
+      "sentence": "The owl turns its head around to the left, then smoothly returns its gaze forward.",
+      "question": "Is the owl facing forward?",
+      "expect": "yes",
+      "duration": 2.5
+     },
+     "checks": [],
+     "end": {
+      "t": 26.25,
+      "how": "motion"
+     },
+     "memory": {
+      "t": 26.25,
+      "op": "none",
+      "label": "A motion only: no state to keep, nothing is written."
+     }
+    }
+   ],
+   "entities": {
+    "owl": {
+     "sentence": "The barn owl sits alert on the top edge of the trunk, head turning slightly as it scans the attic.",
+     "add": 20.25
+    }
+   },
+   "generation_s": 164.6
+  }
+ }
+}
