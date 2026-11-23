@@ -2,6 +2,7 @@
  "scenes": {
   "polar-bear-aurora": {
    "duration": 35.812,
+   "end": 24.0,
    "opening": {
     "code": "igloo = Thing(\"snow igloo\", at=\"center of snowfield\")\nsnowfield = Thing(\"wide flat snowfield\", at=\"around the igloo\")\nworld.sky = \"clear daytime\"",
     "text": "An igloo on the snow under a clear daytime sky, with a wide flat snowfield around it."
@@ -125,92 +126,12 @@
       "var": "flag_pole",
       "label": "Stored in Entity KV from its region (4% of the frame); its description joins the World-State text."
      }
-    },
-    {
-     "t": 24.0,
-     "start": 24.0,
-     "prompt": "The polar bear walks away out of view.",
-     "kind": "departure",
-     "code": "polar_bear.act(\"walks away out of view\", seconds=3)\ndel polar_bear\nverify(\"Is there a polar bear beside the igloo?\", \"no\")",
-     "step": {
-      "sentence": "The polar bear walks steadily toward the top edge of the frame and exits view.",
-      "question": "Is there a polar bear anywhere in the image?",
-      "expect": "no",
-      "duration": 3.0
-     },
-     "checks": [
-      [
-       27.0,
-       false
-      ],
-      [
-       27.75,
-       false
-      ],
-      [
-       28.5,
-       false
-      ],
-      [
-       29.25,
-       false
-      ],
-      [
-       30.0,
-       false
-      ],
-      [
-       30.75,
-       false
-      ],
-      [
-       31.5,
-       false
-      ],
-      [
-       32.25,
-       false
-      ]
-     ],
-     "end": {
-      "t": 32.25,
-      "how": "unverified"
-     },
-     "late": [
-      [
-       33.0,
-       false
-      ],
-      [
-       33.75,
-       false
-      ],
-      [
-       34.5,
-       false
-      ],
-      [
-       35.25,
-       false
-      ],
-      [
-       36.0,
-       false
-      ]
-     ],
-     "memory": {
-      "t": 32.25,
-      "op": "none",
-      "label": "The target stays in the World-State text; nothing is written to memory."
-     },
-     "entity": "polar_bear"
     }
    ],
    "entities": {
     "polar_bear": {
      "sentence": "The polar bear stands beside the igloo, looking around with its head slightly turned.",
-     "add": 6.0,
-     "drop": 24.0
+     "add": 6.0
     },
     "flag_pole": {
      "sentence": "A red flag on a pole stands planted in the snow next to the igloo, fluttering slightly in the breeze.",
@@ -221,6 +142,7 @@
   },
   "telephone-box-fog": {
    "duration": 35.812,
+   "end": null,
    "opening": {
     "code": "street = Thing(\"quiet London street\", at=\"scene\")\nbus = Thing(\"red double-decker bus\", at=\"parked beside telephone box\")\ntelephone_box = Thing(\"red telephone box\", at=\"beside the bus\")\ncobblestones = Thing(\"wet cobblestones\", at=\"street\")\nstreetlights = Thing(\"yellow streetlights\", at=\"above the street\")\nhouses = Thing(\"terraced houses\", at=\"lining the road\")\nworld.time_of_day = \"night\"\nworld.weather = \"clear\"\nworld.light = \"streetlights on\"\nverify(\"Is the street dark?\", \"no\")\nverify(\"Are the cobblestones wet?\", \"yes\")\nverify(\"Is the bus red?\", \"yes\")\nverify(\"Are the houses terraced?\", \"yes\")",
     "text": "A quiet London street at night: a red double-decker bus is parked beside a red telephone box, wet cobblestones reflect the yellow streetlights, and terraced houses line the road."
@@ -508,6 +430,7 @@
   },
   "kitchen-cat": {
    "duration": 35.812,
+   "end": null,
    "opening": {
     "code": "kitchen_counter = Thing(\"counter\", at=\"kitchen\")\nstove = Thing(\"gas stove\", at=\"kitchen counter\")\nkettle = Thing(\"silver kettle\", at=\"on the stove\")\nbowl = Thing(\"wooden bowl\", at=\"on the counter\")\noranges = Thing(\"oranges\", at=\"in the bowl\")\nwindow = Thing(\"window\", at=\"above the sink\")\nblinds = Thing(\"white blinds\", at=\"on the window\")\nworld.light = \"bright\"\nworld.time_of_day = \"day\"",
     "text": "A bright kitchen: a silver kettle sits on the stove, a wooden bowl of oranges on the counter, and a window with open white blinds above the sink."
@@ -817,6 +740,7 @@
   },
   "attic-trunk-owl": {
    "duration": 35.812,
+   "end": null,
    "opening": {
     "code": "attic = Thing(\"wooden floorboards\", at=\"attic\")\ntrunk = Thing(\"closed wooden trunk\", at=\"on the floorboards\")\nwindow = Thing(\"small round window\", at=\"wall\")\nboxes = Thing(\"old boxes\", at=\"corner\")\nworld.time_of_day = \"daytime\"\nworld.light = \"dim\"",
     "text": "A dim attic in daytime: a closed wooden trunk on the floorboards, a small round window, and old boxes in the corner."

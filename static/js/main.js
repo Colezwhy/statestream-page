@@ -339,7 +339,7 @@
     feedBox.appendChild(feed);
     video.loop = true;
     let tr = null, scene = null, tl = null, items = [], evEls = [], dotEls = [];
-    let prevT = 0, keys = {}, toastUntil = 0, visible = false, userPaused = false, userScroll = -1e9, lastNewest = null;
+    let prevT = 0, keys = {}, toastUntil = 0, visible = false, userPaused = false, userScroll = -1e9, lastNewest = null, looping = false;
 
     function show(id) {
       tr = traces[id]; scene = byId[id];
@@ -348,7 +348,7 @@
       video.poster = vurl(id, "poster.jpg");
       video.src = vurl(id, "StateStream.mp4");
       $$(".chip", picker).forEach((c) => c.setAttribute("aria-pressed", String(c.dataset.id === id)));
-      tl = makeTimeline(tlEl, { duration: tr.duration, prompts: scene.prompts, onSeek: (t) => seek(t) });
+      tl = makeTimeline(tlEl, { duration: tr.end || tr.duration, prompts: scene.prompts, onSeek: (t) => seek(t) });
       // the log
       feed.innerHTML = "";
       items = []; evEls = []; dotEls = []; chk.innerHTML = "";
@@ -416,6 +416,9 @@
     function render(force) {
       if (!tr) return;
       const t = video.currentTime || 0;
+      if (tr.end && t >= tr.end && !looping) {            // a replay that ends before the video does loops there
+        looping = true; seek(0); looping = false; return;
+      }
       clock.textContent = fmt(t);
       tl.update(t);
       // the log: entries and their timed rows
@@ -492,7 +495,7 @@
       prevT = t;
     }
 
-    function seek(t) { video.currentTime = Math.max(0, Math.min(tr.duration - 0.05, t)); prevT = t; render(true); }
+    function seek(t) { video.currentTime = Math.max(0, Math.min((tr.end || tr.duration) - 0.05, t)); prevT = t; render(true); }
     function play() { userPaused = false; video.play().catch(() => {}); }
     feed.addEventListener("wheel", () => { userScroll = performance.now(); }, { passive: true });
     feed.addEventListener("touchmove", () => { userScroll = performance.now(); }, { passive: true });
