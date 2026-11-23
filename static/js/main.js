@@ -240,12 +240,16 @@
   }
 
   /* ───────── data ───────── */
-  fetch("static/scenes.json").then((r) => r.json()).then((data) => {
+  // data files carry their own version (from the page, as the CSS / JS do), so a new script never meets an old cached file
+  const DV = Object.fromEntries(((document.querySelector('meta[name="ss-data"]') || {}).content || "").split(";").filter((x) => x.includes("="))
+    .map((x) => x.split("=")));
+  const dataUrl = (f) => `static/${f}.json${DV[f] ? `?v=${DV[f]}` : ""}`;
+  fetch(dataUrl("scenes")).then((r) => r.json()).then((data) => {
     const scenes = data.scenes;
     const byId = Object.fromEntries(scenes.map((s) => [s.id, s]));
     initHero(HERO.map((id) => byId[id]).filter(Boolean));
     initPlayer(scenes, byId);
-    fetch("static/trace.json").then((r) => r.json()).then((tr) => initRun(byId, tr.scenes))
+    fetch(dataUrl("trace")).then((r) => r.json()).then((tr) => initRun(byId, tr.scenes))
       .catch(() => { const r = $("#run"); if (r) r.hidden = true; });
   }).catch(() => {
     const p = $("#player");
