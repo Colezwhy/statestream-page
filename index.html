@@ -13,14 +13,14 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>StateStream</title>
-  <meta name="description" content="StateStream keeps a persistent world state for interactive long video generation: it interprets each new prompt against what happened before, plans and checks its execution on generated frames, and keeps confirmed changes in entity memory, on a frozen video generator without task-specific training.">
+  <meta name="description" content="StateStream reasons over a persistent world state to control interactive long video generation: it interprets each new prompt against what happened before, plans and checks its execution on generated frames, and keeps confirmed changes in entity memory, on a frozen video generator without task-specific training.">
   <meta name="theme-color" content="#f1f2f5">
   <link rel="canonical" href="https://colezwhy.github.io/statestream-page/">
 
   <meta property="og:site_name" content="StateStream">
   <meta property="og:type" content="website">
   <meta property="og:title" content="StateStream: Agentic World-State Reasoning and Control for Interactive Long Video Generation">
-  <meta property="og:description" content="Interactive long videos whose changes last: world-state reasoning, planning and visual feedback on a frozen video generator.">
+  <meta property="og:description" content="Interactive long video generation with world-state reasoning and control: an agent plans each prompt against the world so far, steers a frozen generator, and checks the frames it produces.">
   <meta property="og:url" content="https://colezwhy.github.io/statestream-page/">
   <meta property="og:image" content="https://colezwhy.github.io/statestream-page/static/img/og.jpg">
   <meta name="twitter:card" content="summary_large_image">
@@ -116,7 +116,7 @@
         </div>
         <ol class="st-log" id="hero-log"></ol>
         <div class="st-picker" id="hero-picker" role="group" aria-label="Choose a scene"></div>
-        <figcaption class="st-caption">One continuous 36 s generation. Each colored marker is a prompt sent while the video was streaming; earlier changes should stay unless a later prompt replaces them.</figcaption>
+        <figcaption class="st-caption">One continuous 36 s generation. Each colored marker is a prompt sent while the video was streaming; StateStream carries out each one and keeps its effect until a later prompt replaces it.</figcaption>
       </figure>
     </div>
   </section>
@@ -127,7 +127,7 @@
       <div class="sec-head">
         <p class="sec-ref">Overview<span>Figures 1–2</span></p>
         <div>
-          <h2 class="sec-title">A prompt should change the world, and the change should stay</h2>
+          <h2 class="sec-title">Each prompt needs reasoning about the world and control over generation</h2>
           <p class="sec-lead">Users steer an interactive video while it is being generated. A request can refer to something that happened earlier, can depend on a condition the video has to show first, and should keep its effect until a later prompt replaces it.</p>
         </div>
       </div>
@@ -144,7 +144,7 @@
         <div class="f-card">
           <span class="k">Memory lost</span>
           <h3>“Pick up what was left”</h3>
-          <p>The prompt only makes sense through an earlier interaction. Without a record of it, the backpack left at 4 s is never brought back.</p>
+          <p>“What was left” points back to an earlier interaction. Without a world state to reason over, the backpack left at 4 s is never brought back.</p>
           <span class="req">memory-dependent prompt</span>
         </div>
         <div class="f-card">
@@ -161,8 +161,8 @@
         </div>
         <div class="f-card f-card--ours">
           <span class="k">StateStream</span>
-          <h3>Keep a world state between prompts</h3>
-          <p>A state program records every requested change. Plans are executed step by step and checked on generated frames, and only confirmed results are written into memory.</p>
+          <h3>Reason over a world state, then control generation</h3>
+          <p>A state program records every requested change, and each new prompt is read against it. Plans are executed step by step and checked on generated frames, and only confirmed results are written into memory.</p>
           <span class="req">reason · plan · verify · remember</span>
         </div>
       </div>
@@ -176,7 +176,7 @@
           <figcaption><span class="fig-no">Fig. 1</span>StateStream follows successive interactive prompts across four scenes, combining environmental changes, local object updates, and entity arrivals and departures, while keeping changes that later prompts do not supersede.</figcaption>
         </figure>
         <div class="prose prose--short">
-          <p><strong>StateStream</strong> keeps an explicit world state next to a frozen video generator, with no task-specific training.</p>
+          <p><strong>StateStream</strong> reasons over an explicit world state and uses it to control a frozen video generator, with no task-specific training.</p>
           <p>A VLM agent turns each prompt into a state update and a step-by-step plan, conditions the generator on the resulting state, and checks generated frames before anything is written into memory.</p>
           <p>Changes are carried out at the right time and stay until a later prompt replaces them.</p>
         </div>
@@ -191,7 +191,7 @@
         <p class="sec-ref">§3 Method<span>Figures 3–4</span></p>
         <div>
           <h2 class="sec-title">Three modules around one shared world state</h2>
-          <p class="sec-lead">A VLM agent keeps the world state, and a frozen autoregressive video generator (LongLive or Self-Forcing) renders it. The two share entity names: the same name links a line of the state program, a phrase in the conditioning text, and a region of visual memory.</p>
+          <p class="sec-lead">A VLM agent reasons over the world state and controls a frozen autoregressive video generator (LongLive or Self-Forcing) that renders it. The two share entity names: the same name links a line of the state program, a phrase in the conditioning text, and a region of visual memory.</p>
         </div>
       </div>
 
@@ -319,7 +319,7 @@ verify(<span class="s">"Is the chest open?"</span>, <span class="s">"yes"</span>
         <p class="sec-ref">Videos<span>Supplementary material</span></p>
         <div>
           <h2 class="sec-title">Same prompts, same times, four methods</h2>
-          <p class="sec-lead">Every method receives the same opening description and the same interactive prompts at the same moments. Play a scene and watch the later part of each video: that is where earlier changes either stay or disappear.</p>
+          <p class="sec-lead">Every method receives the same opening description and the same interactive prompts at the same moments. Play a scene and follow each prompt: whether it is carried out as asked and at the right moment, and whether its change is still there later on.</p>
         </div>
       </div>
 
@@ -357,7 +357,7 @@ verify(<span class="s">"Is the chest open?"</span>, <span class="s">"yes"</span>
         <p class="sec-ref">§4 Experiments<span>Figures 5–7</span></p>
         <div>
           <h2 class="sec-title">More interactions succeed, and they last</h2>
-          <p class="sec-lead">All methods share opening scenes, prompts and prompt times. Later frames show which earlier changes were kept. Quantitative results are in the paper.</p>
+          <p class="sec-lead">All methods share opening scenes, prompts and prompt times. The frames after each prompt show whether it was carried out, and later frames show which earlier changes were kept. Quantitative results are in the paper.</p>
         </div>
       </div>
 
